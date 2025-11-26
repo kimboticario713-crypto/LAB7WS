@@ -1,7 +1,28 @@
 type Query {
+    # Simple test
     hello: String
+
+    # Get all data
     getUsers: [User]
     getProducts: [Product]
+
+    # Get single item
+    getUser(id: ID!): User
+    getProduct(id: ID!): Product
+}
+
+type Mutation {
+    # Create new
+    createUser(name: String!, email: String!): User
+    createProduct(name: String!, price: Float!): Product
+
+    # Update existing
+    updateUser(id: ID!, name: String, email: String): User
+    updateProduct(id: ID!, name: String, price: Float): Product
+
+    # Delete
+    deleteUser(id: ID!): Boolean
+    deleteProduct(id: ID!): Boolean
 }
 
 type User {
@@ -14,5 +35,5 @@ type Product {
     id: ID!
     name: String!
     price: Float!
-    category: String!
+    category: String
 }
