@@ -3,7 +3,7 @@ package com.CANANGA.LAB7.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.CANANGA.LAB7.Product;
+import com.CANANGA.LAB7.entity.Product;
 import com.CANANGA.LAB7.service.ProductService;
 import java.util.List;
 

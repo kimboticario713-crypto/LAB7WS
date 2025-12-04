@@ -3,21 +3,21 @@ type Query {
     hello: String
 
     # Get all data
-    getUsers: [User]
+    getUsers: [Customer]
     getProducts: [Product]
 
     # Get single item
-    getUser(id: ID!): User
+    getUser(id: ID!): Customer
     getProduct(id: ID!): Product
 }
 
 type Mutation {
     # Create new
-    createUser(name: String!, email: String!): User
+    createUser(name: String!, email: String!): Customer
     createProduct(name: String!, price: Float!): Product
 
     # Update existing
-    updateUser(id: ID!, name: String, email: String): User
+    updateUser(id: ID!, name: String, email: String): Customer
     updateProduct(id: ID!, name: String, price: Float): Product
 
     # Delete
@@ -25,15 +25,23 @@ type Mutation {
     deleteProduct(id: ID!): Boolean
 }
 
-type User {
+type Customer {
     id: ID!
     name: String!
     email: String!
+    invoices: [Invoice]
 }
 
 type Product {
     id: ID!
     name: String!
     price: Float!
-    category: String
+}
+
+type Invoice {
+    id: ID!
+    invoiceDate: String!
+    totalAmount: Float!
+    customer: Customer!
+    products: [Product]!
 }
